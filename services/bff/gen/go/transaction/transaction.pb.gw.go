@@ -14,8 +14,6 @@ import (
 	"io"
 	"net/http"
 
-	extHealthv1 "github.com/boykush/foresee/services/bff/gen/go/grpc/health/v1"
-	extTransactionv1 "github.com/boykush/foresee/services/bff/gen/go/transaction"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"
@@ -39,9 +37,9 @@ var (
 
 var filter_TransactionService_HealthCheck_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 
-func request_TransactionService_HealthCheck_0(ctx context.Context, marshaler runtime.Marshaler, client extTransactionv1.TransactionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TransactionService_HealthCheck_0(ctx context.Context, marshaler runtime.Marshaler, client TransactionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq extHealthv1.HealthCheckRequest
+		protoReq HealthCheckRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := req.ParseForm(); err != nil {
@@ -54,9 +52,9 @@ func request_TransactionService_HealthCheck_0(ctx context.Context, marshaler run
 	return msg, metadata, err
 }
 
-func local_request_TransactionService_HealthCheck_0(ctx context.Context, marshaler runtime.Marshaler, server extTransactionv1.TransactionServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_TransactionService_HealthCheck_0(ctx context.Context, marshaler runtime.Marshaler, server TransactionServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq extHealthv1.HealthCheckRequest
+		protoReq HealthCheckRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := req.ParseForm(); err != nil {
@@ -74,7 +72,7 @@ func local_request_TransactionService_HealthCheck_0(ctx context.Context, marshal
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterTransactionServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
-func RegisterTransactionServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server extTransactionv1.TransactionServiceServer) error {
+func RegisterTransactionServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server TransactionServiceServer) error {
 	mux.Handle(http.MethodGet, pattern_TransactionService_HealthCheck_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -126,15 +124,15 @@ func RegisterTransactionServiceHandlerFromEndpoint(ctx context.Context, mux *run
 // RegisterTransactionServiceHandler registers the http handlers for service TransactionService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
 func RegisterTransactionServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterTransactionServiceHandlerClient(ctx, mux, extTransactionv1.NewTransactionServiceClient(conn))
+	return RegisterTransactionServiceHandlerClient(ctx, mux, NewTransactionServiceClient(conn))
 }
 
 // RegisterTransactionServiceHandlerClient registers the http handlers for service TransactionService
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "extTransactionv1.TransactionServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "extTransactionv1.TransactionServiceClient"
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "TransactionServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "TransactionServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "extTransactionv1.TransactionServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
-func RegisterTransactionServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client extTransactionv1.TransactionServiceClient) error {
+// "TransactionServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
+func RegisterTransactionServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client TransactionServiceClient) error {
 	mux.Handle(http.MethodGet, pattern_TransactionService_HealthCheck_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()

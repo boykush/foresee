@@ -10,14 +10,12 @@ plugins:
     out: gen/go
     opt:
       - paths=source_relative
-    include_imports: true
 
   # Generate Go gRPC code
   - remote: buf.build/grpc/go
     out: gen/go
     opt:
       - paths=source_relative
-    include_imports: true
 
   # Generate grpc-gateway code with external HTTP mapping
   - local: protoc-gen-grpc-gateway
@@ -25,4 +23,3 @@ plugins:
     opt:
       - paths=source_relative
       - grpc_api_configuration=proto/api_config.yaml
-      - standalone=true
