@@ -1,9 +1,0 @@
-# local (kind) specific overrides for istiod
-# Platform is not specified for generic Kubernetes (kind)
-
-# Add local-specific settings here if needed
-# For example:
-# pilot:
-#   resources:
-#     requests:
-#       memory: 256Mi
