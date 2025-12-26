@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-#MISE description="Apply all k8s resources for local environment (platform + apps)"
+#MISE description="Apply all k8s resources for local environment (platform + workloads)"
 #MISE depends=["k8s:local:apply-platform"]
 
-echo "Applying application resources for local environment..."
-kubectl apply -k "k8s/apps/overlays/local"
+echo "Enabling Istio injection for default namespace..."
+kubectl label namespace default istio-injection=enabled --overwrite
+
+echo "Applying workload resources for local environment..."
+kubectl apply -k k8s/overlays/local/workloads
