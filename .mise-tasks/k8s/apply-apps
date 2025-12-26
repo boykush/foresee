@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#MISE description="Apply application resources with kustomize"
-#MISE arg "env" help="Environment name (default: local)"
-
-ENV="${1:-local}"
-
-kubectl apply -k "k8s/apps/overlays/${ENV}"
