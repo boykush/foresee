@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-#MISE description="Create kind cluster named foresee"
-
-kind create cluster --name foresee --config k8s/platform/overlays/local/kind-config.yaml
