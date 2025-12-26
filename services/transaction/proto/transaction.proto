@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package transaction.v1;
+
+option go_package = "github.com/boykush/foresee/services/transaction/gen/go/transaction/v1;transactionv1";
+
+import "grpc/health/v1/health.proto";
+
+// TransactionService manages household expense transactions
+service TransactionService {
+  // HealthCheck checks if the service is healthy using standard gRPC health check
+  rpc HealthCheck(grpc.health.v1.HealthCheckRequest) returns (grpc.health.v1.HealthCheckResponse);
+}
