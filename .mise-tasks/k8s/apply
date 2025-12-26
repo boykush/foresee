@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Apply all k8s resources (platform + apps)"
+#MISE depends=["k8s:apply-platform", "k8s:apply-apps"]
+#MISE arg "env" help="Environment name (default: local)"
+
+ENV="${1:-local}"
+
+# This task's work is done through dependencies
+echo "Applied platform and apps resources for environment: ${ENV}"

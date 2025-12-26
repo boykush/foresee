@@ -13,7 +13,11 @@ spec:
     metadata:
       labels:
         app: bff-service
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
+      serviceAccountName: bff-service
       containers:
       - name: bff-service
         image: bff-service:latest

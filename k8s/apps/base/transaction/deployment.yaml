@@ -13,7 +13,11 @@ spec:
     metadata:
       labels:
         app: transaction-service
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
+      serviceAccountName: transaction-service
       containers:
       - name: transaction-service
         image: transaction-service:latest
