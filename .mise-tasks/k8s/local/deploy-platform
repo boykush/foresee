@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Apply platform resources (ArgoCD, Istio, etc.) for local environment"
+#MISE description="Deploy platform resources (ArgoCD, Istio, etc.) for local environment"
 
 # Create namespaces first
 echo "Creating platform namespaces..."
@@ -22,4 +22,4 @@ fi
 echo "Deploying platform ArgoCD Applications..."
 kubectl apply -k k8s/overlays/local/platform
 
-echo "Platform setup complete! ArgoCD will sync the applications in the background."
+echo "Platform setup complete!"

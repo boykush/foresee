@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Open ArgoCD GUI on localhost:8081"
-#MISE depends=["k8s:local:apply"]
+#MISE depends=["k8s:local:deploy"]
 
 # Get admin password
 echo "ArgoCD Admin Password:"
