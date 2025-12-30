@@ -11,7 +11,7 @@ echo "  Username: admin"
 echo "  Password: $PASSWORD"
 echo ""
 echo "Starting port-forward to ArgoCD server..."
-echo "Access ArgoCD at: http://localhost:8080"
+echo "Access ArgoCD at: http://localhost:8081"
 echo ""
 
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8081:443
