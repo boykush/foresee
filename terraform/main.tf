@@ -15,3 +15,10 @@ module "github_actions_sa" {
 
   project_id = var.project_id
 }
+
+# GKE Autopilot cluster
+module "gke" {
+  source = "./gke"
+
+  project_id = var.project_id
+}
