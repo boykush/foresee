@@ -3,6 +3,11 @@ variable "project_id" {
   type        = string
 }
 
+variable "project_number" {
+  description = "GCP project number"
+  type        = string
+}
+
 variable "cluster_name" {
   description = "GKE cluster name"
   type        = string
