@@ -37,8 +37,8 @@ jobs:
 
       - name: Build and push ${{ inputs.service }} service
         run: |
-          IMAGE_NAME="${{ env.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ inputs.service }}:${{ github.sha }}"
-          IMAGE_NAME_LATEST="${{ env.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ inputs.service }}:latest"
+          IMAGE_NAME="${{ env.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ inputs.service }}-service:${{ github.sha }}"
+          IMAGE_NAME_LATEST="${{ env.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ inputs.service }}-service:latest"
 
           docker build -t $IMAGE_NAME -t $IMAGE_NAME_LATEST -f services/${{ inputs.service }}/Dockerfile services/${{ inputs.service }}
           docker push $IMAGE_NAME
