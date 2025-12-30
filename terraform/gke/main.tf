@@ -5,6 +5,9 @@ resource "google_container_cluster" "primary" {
   # Autopilot cluster
   enable_autopilot = true
 
+  # Allow cluster deletion
+  deletion_protection = false
+
   # Release channel for automatic upgrades
   release_channel {
     channel = "REGULAR"

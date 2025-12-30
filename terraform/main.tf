@@ -18,6 +18,7 @@ module "github_actions_sa" {
 
 # GKE Autopilot cluster
 module "gke" {
+  count  = var.enable_gke ? 1 : 0
   source = "./gke"
 
   project_id     = var.project_id
